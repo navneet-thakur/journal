@@ -18,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/navneet-thakur/journal/issues"
   },
-  "homepage": "https://github.com/navneet-thakur/journal#readme"
+  "homepage": "https://github.com/navneet-thakur/journal#readme",
+  "dependencies": {
+    "express": "~4.13.x",
+    "body-parser": "~1.14.x",
+    "cookie-parser": "~1.4.X",
+    "express-session": "~1.13.X",
+    "jade": "~1.11.x"
+  }
+  
 }
