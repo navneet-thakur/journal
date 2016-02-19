@@ -1,0 +1,38 @@
+extends ../layout/base.jade
+
+block content
+    article(class='welcome-left-article')
+        div(class='welcome-register-block')
+            form(id='welcome-register-form')
+                span(class='post-head') Create an account for free 
+                ul(class='welcome-register')
+                    li.label  
+                        span Full Name:
+                    li  
+                        input(type='text',name='full_name',maxlength=75,placeholder='Full Name')
+                    li.label  
+                        span Username:
+                    li  
+                        input(type='text',name='username',maxlength=20,placeholder='Username')
+                    li.label  
+                        span Password:
+                    li  
+                        input(type='password',name='password',maxlength=20,placeholder='Password')
+                    li.label
+                        span Email:
+                    li  
+                        input(type='email',name='email',maxlength=50,placeholder='Email')
+                    li  
+                        input(type='button',value='Join',class='black-button golden-button')
+    article(class='welcome-right-article')
+        ul(class='welcome-site-points')
+            li Join for free, write your Journal online
+            li We make sure that only authentic person can read the Journal
+            li 100% private and secure
+            li Multiple layers of encryption
+            li Instant search for older entries
+            li Option for allowing your close friends to follow you
+    article
+        ul
+            li 
+                a(href='/login') Social Authentication

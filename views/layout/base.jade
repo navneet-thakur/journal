@@ -1,0 +1,46 @@
+if !locals.mode
+    html(lang='en')
+        head
+            meta(charset="utf-8")
+            title=title
+            meta(name="description",content="My Journal your personal web diary")
+            meta(name="author",content="achilles")
+            link(rel='stylesheet', href='css/main-css.css')
+            script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+            <!--[if lt IE 11]>
+            script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
+            <![endif]-->
+        body
+            div(class='site-wrapper')
+                header(class='welcome-head header')
+                    div(class='welcome-header-content')
+                        span(class='site-title') Your Journal
+                        div(class='header-right-area')
+                            // check if user is logged input
+                            // show below block if not logged in
+                            div(class='welcome-login-bar')
+                                form(id='login-register-form')
+                                    ul(class='welcome-login')
+                                        li 
+                                            span Username:
+                                        li 
+                                            input(type='text',name='username', maxlength=20, size=20, placeholder='Enter Username')
+                                        li
+                                            span Password:
+                                        li  
+                                            input(type='password', name='password', maxlength=20, size=20, placeholder='Enter Password')
+                                        li
+                                            input(type='button',class='black-button',id='submit',onclick='alert("hello")', value='Login')
+                                        li  
+                                            a(href='#',class='forgot-pwd-sym',title='Forgot Password?') ?
+                            // if logged in then write the block below
+                        
+                section(class='welcome-content content-wrapper')
+                    article(class='main-article')
+                        block content
+                footer(class='welcome-footer footer')
+                    div(class='footer-content')
+                        span &copy; designed and developed by Navneet Thakur
+            script(type='text/javascript',src='script/site-script.js')
+else
+    block content

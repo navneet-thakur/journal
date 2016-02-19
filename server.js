@@ -4,9 +4,15 @@ var server_port     = process.env.PORT||3000
 , bodyParser        = require('body-parser')
 , morgan            = require('morgan')
 , cookieParser      = require('cookie-parser')
-, sessionStorage    = require('express-session')
+, session           = require('express-session')
+, mongoose          = require('mongoose')
+, config            = require('./config/database')
+, passport          = require('passport')
 
 var server = express();
+
+// Configuration
+mongoose.connect(config.url);
 
 // Template engine settings
 server.set('views','./views')
@@ -17,15 +23,16 @@ server.use(morgan('dev')); // log every request to the console
 server.use(cookieParser()); // read cookies (needed for auth)
 server.use(bodyParser.urlencoded({ extended: true })); // get information from html forms
 server.use(bodyParser.json());
+server.use(session({secret:'NDHYROIFK5J749HJT53FBPVK'}))
 
 server.use(express.static('public'));
 
 // ROUTES
 var router = express.Router();
-// include all routes
-var routes = require('./routes')(router)
-// REGISTER OUR ROUTES
-server.use('/', router);
+var routes = require('./routes')(router) // include all routes
+server.use('/', router); // REGISTER OUR ROUTES
+server.use(function(req, res) { res.send('404: Page not Found', 404); }); // 404 handler
+server.use(function(error, req, res, next) { res.send('500: Internal Server Error', 500); }); // 500 error handler
 
 server.listen(server_port, server_ip_address, function () {
   console.log( "Listening on " + server_ip_address + ", server_port " + server_port );
