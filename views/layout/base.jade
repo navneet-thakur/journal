@@ -19,7 +19,7 @@ if !locals.mode
                             // check if user is logged input
                             // show below block if not logged in
                             div(class='welcome-login-bar')
-                                form(id='login-register-form')
+                                form(id='login-register-form', action='/login', method='POST')
                                     ul(class='welcome-login')
                                         li 
                                             span Username:
@@ -30,7 +30,7 @@ if !locals.mode
                                         li  
                                             input(type='password', name='password', maxlength=20, size=20, placeholder='Enter Password')
                                         li
-                                            input(type='button',class='black-button',id='submit',onclick='alert("hello")', value='Login')
+                                            input(type='submit',class='black-button',id='submit', value='Login')
                                         li  
                                             a(href='#',class='forgot-pwd-sym',title='Forgot Password?') ?
                             // if logged in then write the block below
@@ -41,6 +41,7 @@ if !locals.mode
                 footer(class='welcome-footer footer')
                     div(class='footer-content')
                         span &copy; designed and developed by Navneet Thakur
-            script(type='text/javascript',src='script/site-script.js')
+            // script(type='text/javascript',src='script/site-script.js')
+            script(src="scripts/ui-script.js")
 else
     block content

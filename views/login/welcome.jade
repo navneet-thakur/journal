@@ -3,27 +3,35 @@ extends ../layout/base.jade
 block content
     article(class='welcome-left-article')
         div(class='welcome-register-block')
-            form(id='welcome-register-form')
+            form(id='welcome-register-form', action='/register', method='POST')
                 span(class='post-head') Create an account for free 
                 ul(class='welcome-register')
                     li.label  
                         span Full Name:
                     li  
-                        input(type='text',name='full_name',maxlength=75,placeholder='Full Name')
+                        div.input-block
+                            input(type='text',name='full_name',maxlength=75,placeholder='Full Name')
+                            span.underline
                     li.label  
                         span Username:
                     li  
-                        input(type='text',name='username',maxlength=20,placeholder='Username')
+                        div.input-block
+                            input(type='text',name='username',maxlength=20,placeholder='Username')
+                            span.underline
                     li.label  
                         span Password:
                     li  
-                        input(type='password',name='password',maxlength=20,placeholder='Password')
+                        div.input-block
+                            input(type='password',name='password',maxlength=20,placeholder='Password')
+                            span.underline
                     li.label
                         span Email:
                     li  
-                        input(type='email',name='email',maxlength=50,placeholder='Email')
+                        div.input-block
+                            input(type='email',name='email',maxlength=50,placeholder='Email')
+                            span.underline
                     li  
-                        input(type='button',value='Join',class='black-button golden-button')
+                        input(type='submit',value='Join',class='black-button golden-button')
     article(class='welcome-right-article')
         ul(class='welcome-site-points')
             li Join for free, write your Journal online
@@ -35,4 +43,4 @@ block content
     article
         ul
             li 
-                a(href='/login') Social Authentication
+                a(href='/signup') Social Authentication

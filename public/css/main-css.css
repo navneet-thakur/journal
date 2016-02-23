@@ -15,14 +15,29 @@ input[type='text'],input[type='password'],input[type='email']{
     appearance: none;
     box-shadow: none;
     border: 1px solid #ccd6dd;
-    transition:border 1s, border-bottom 0.3s;
+    /*transition:border 1s, border-bottom 0.3s;*/
     border-bottom: solid 2px #c9c9c9;
 }
 input[type="text"]:focus,input[type="email"]:focus,input[type='password']:focus {
   outline: none;
-  border: solid 1px #707070;
+  /*border: solid 1px #707070;*/
   /*box-shadow: 0 0 5px 1px #969696;*/
-  border-bottom: solid 2px #303030;
+  border-bottom: solid 2px #c9c9c9;
+}
+.input-block span.underline{
+    display: block;
+    border: 1px solid transparent;
+    position: relative;
+    bottom: 2px;
+    width: 0%;
+    margin: 0px auto;
+    transition:width 0.3s, border .1s;
+}
+.input-block input[type="text"]:focus+span.underline,
+.input-block input[type="password"]:focus+span.underline,
+.input-block input[type="email"]:focus+span.underline{
+    width:99%;
+    border:1px solid #3f51b5;
 }
 .black-button{
     border: 1px solid #242424;
